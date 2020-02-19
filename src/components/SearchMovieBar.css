@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1px black;
+}
+
+.title {
+  text-align: center;
+}
