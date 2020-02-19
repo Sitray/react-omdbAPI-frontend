@@ -18,8 +18,7 @@
   margin: 6px;
 }
 
-.form {
-  margin: 8px;
-  width: auto;
-  text-align: center;
+.input {
+  margin: 10px;
+  width: 250px;
 }

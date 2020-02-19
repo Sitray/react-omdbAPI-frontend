@@ -18,7 +18,7 @@ export default function SearchMovieBarComponent(props) {
         <h2 className="title">Search</h2>
         <Input
           placeholder="Enter a movie..."
-          className="form"
+          className="input"
           inputProps={{ 'aria-label': 'description' }}
           value={movie}
           onChange={e => setMovie(e.target.value)}
