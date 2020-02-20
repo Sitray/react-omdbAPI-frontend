@@ -14,7 +14,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
-    "typeface-roboto": "0.0.75"
+    "typeface-roboto": "0.0.75",
+    "webpack": "^4.41.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,8 +39,6 @@
     ]
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "dotenv": "^8.2.0"
   }
 }

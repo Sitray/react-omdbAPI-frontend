@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 
@@ -8,6 +8,7 @@ import './SearchMovieBar.css';
 
 function SearchMovieBarComponent(props) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [movie, setMovie] = useState('');
 
   const handleSUmbit = event => {
@@ -17,18 +18,8 @@ function SearchMovieBarComponent(props) {
       type: 'SET_MOVIE',
       item: movie
     });
-
-    //console.log(API_KEY);
+    history.push(`/movies?q=${movie}`);
   };
-
-  // const res = useFetch(
-  //   `http://www.omdbapi.com/?s=${movie}&apikey=${API_KEY}`,
-  //   {}
-  // );
-
-  // if (res.data) {
-  //   console.log(res.data.Search[0].Title);
-  // }
 
   return (
     <div className="container">
@@ -48,7 +39,7 @@ function SearchMovieBarComponent(props) {
             </Button>
           </div>
         </form>
-        <Button
+        {/* <Button
           variant="contained"
           color="primary"
           type="submit"
@@ -56,10 +47,13 @@ function SearchMovieBarComponent(props) {
           to="/movies"
         >
           next
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
 }
 
-export default connect()(SearchMovieBarComponent);
+// const SearchForm = connect()(SearchMovieBarComponent);
+
+const ShowTheLocationWithRouter = withRouter(SearchMovieBarComponent);
+export default connect(ShowTheLocationWithRouter)(SearchMovieBarComponent);
