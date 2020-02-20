@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 
@@ -14,21 +15,29 @@ export default function SearchMovieBarComponent(props) {
 
   return (
     <div className="container">
-      <form noValidate autoComplete="off" onSubmit={handleSUmbit}>
-        <h2 className="title">Search</h2>
-        <Input
-          placeholder="Enter a movie..."
-          className="input"
-          inputProps={{ 'aria-label': 'description' }}
-          value={movie}
-          onChange={e => setMovie(e.target.value)}
-        />
-        <div className="button">
-          <Button variant="contained" color="primary" type="submit">
-            Submit
-          </Button>
-        </div>
-      </form>
+      <div className="form">
+        <form noValidate autoComplete="off" onSubmit={handleSUmbit}>
+          <h2 className="title">Search</h2>
+          <Input
+            placeholder="Enter a movie..."
+            className="input"
+            inputProps={{ 'aria-label': 'description' }}
+            value={movie}
+            onChange={e => setMovie(e.target.value)}
+          />
+          <div className="button">
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              component={Link}
+              to="/movies"
+            >
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

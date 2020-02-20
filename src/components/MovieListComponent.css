@@ -1,0 +1,19 @@
+.containerMovieList {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 50%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.asdf {
+}
+
+.test {
+  justify-content: space-between;
+  position: relative;
+  display: flex;
+}
