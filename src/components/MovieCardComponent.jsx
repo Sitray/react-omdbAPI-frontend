@@ -20,6 +20,12 @@ const useStyles = makeStyles({
 export default function MovieCardComponent(props) {
   const classes = useStyles();
 
+  if (!props.data) {
+    return <div>loading</div>;
+  }
+  console.log(props.data);
+  console.log('card component');
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -30,11 +36,10 @@ export default function MovieCardComponent(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            Title :{props.data.Title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            Description:
           </Typography>
         </CardContent>
       </CardActionArea>
