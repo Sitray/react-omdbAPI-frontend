@@ -15,9 +15,15 @@
 
 .searchBar {
   align-items: center;
-  /* flex-direction: row; */
-  position: absolute;
+  flex-direction: row;
+  /* position: absolute; */
   display: flex;
-  /* flex: 1 1; */
+  flex: 1 1;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* z-index: 1; */
+
+  margin-top: -188%;
+  margin-left: 100%;
 }

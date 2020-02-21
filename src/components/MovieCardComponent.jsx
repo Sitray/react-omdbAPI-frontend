@@ -21,6 +21,11 @@ const useStyles = makeStyles({
     width: 250,
     paddingTop: '56.25%', // 16:9,
     marginTop: '30'
+  },
+  button: {
+    width: '50%',
+    marginLeft: '50px',
+    margin: '10px'
   }
 });
 
@@ -60,7 +65,13 @@ function MovieCardComponent(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={handleClick}>
+        <Button
+          size="small"
+          variant="outlined"
+          color="primary"
+          onClick={handleClick}
+          className={classes.button}
+        >
           More Details
         </Button>
       </CardActions>

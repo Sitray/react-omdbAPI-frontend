@@ -31,11 +31,10 @@ export default function MovieListComponent() {
   return (
     <div className="containerMovieList">
       {movieList}
-      <div>
-        <div className="searchBar">
-          <SearchMovieBarComponent />
-        </div>
+      <div className="searchBar">
+        <SearchMovieBarComponent />
       </div>
+      <div></div>
     </div>
   );
 }

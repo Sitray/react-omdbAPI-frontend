@@ -6,6 +6,8 @@
 .button {
   text-align: center;
   margin: 6px;
+  margin-left: 50px;
+  width: 50%;
 }
 
 .input {

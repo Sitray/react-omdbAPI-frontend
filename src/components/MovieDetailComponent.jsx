@@ -10,16 +10,27 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {} from '@material-ui/system';
 
 import { API_KEY } from '../constants';
 import { useFetch } from '../hooks';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345
+    maxWidth: 250,
+    marginTop: '70px',
+    boxShadow: ' 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)'
   },
   media: {
-    height: 140
+    height: 200,
+    width: 250,
+    paddingTop: '56.25%', // 16:9,
+    marginTop: '30'
+  },
+  button: {
+    width: '50%',
+    marginLeft: '50px',
+    margin: '10px'
   }
 });
 
@@ -42,42 +53,56 @@ function MovieDetailComponent(props) {
   };
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={movieDetail.Poster}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h4" component="h2">
-            Title: {movieDetail.Title}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Year: {movieDetail.Year} , {movieDetail.Released},{' '}
-            {movieDetail.Rated}
-          </Typography>
-          <hr />
-          <Typography variant="body2" color="textSecondary" component="p">
-            Plot: {movieDetail.Plot}
-          </Typography>
-          <hr />
-          <Typography variant="body2" color="textSecondary" component="p">
-            Director: {movieDetail.Director} <br />
-            Writer: {movieDetail.Writer}
-          </Typography>
-          <hr />
-          <Typography variant="body2" color="textSecondary" component="p">
-            Imdb Rating: {movieDetail.imdbRating}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="secondary" onClick={handleOnClick}>
-          Back
-        </Button>
-      </CardActions>
-    </Card>
+    <div className="container">
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={movieDetail.Poster}
+            title="Movie"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="h2">
+              Title: {movieDetail.Title}
+            </Typography>
+            <Typography variant="h7" color="textSecondary" component="p">
+              Year: {movieDetail.Year} , {movieDetail.Released},{' '}
+              {movieDetail.Rated}
+            </Typography>
+            <hr />
+            <Typography variant="h6" color="textSecondary" component="p">
+              <p> Plot </p> <hr /> {movieDetail.Plot}
+            </Typography>
+
+            <Typography variant="h6" color="textSecondary" component="p">
+              <p> Director</p> <hr /> {movieDetail.Director}
+            </Typography>
+
+            <Typography variant="h7" color="textSecondary" component="h3">
+              <p> Actors</p> <hr /> {movieDetail.Actors}
+            </Typography>
+
+            <Typography
+              variant="h6"
+              color="textSecondary"
+              component="p"
+            ></Typography>
+          </CardContent>
+        </CardActionArea>
+
+        <CardActions>
+          <Button
+            size="small"
+            color="secondary"
+            onClick={handleOnClick}
+            variant="outlined"
+            className={classes.button}
+          >
+            Back
+          </Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 }
 
