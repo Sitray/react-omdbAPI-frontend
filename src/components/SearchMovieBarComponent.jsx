@@ -22,7 +22,7 @@ function SearchMovieBarComponent(props) {
   };
 
   return (
-    <div className="container">
+    <div>
       <div className="form">
         <form noValidate autoComplete="off" onSubmit={handleSUmbit}>
           <h2 className="title">Search</h2>

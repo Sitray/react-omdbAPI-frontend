@@ -21,7 +21,9 @@ export default function MovieListComponent() {
 
   let movieList = movieInfo ? (
     movieInfo.Search.map((data, i) => (
-      <MovieCardComponent key={i} data={data} />
+      <div>
+        <MovieCardComponent key={i} data={data} />
+      </div>
     ))
   ) : (
     <div>Not found!</div>
@@ -29,8 +31,8 @@ export default function MovieListComponent() {
 
   return (
     <div className="containerMovieList">
-      <div className="test">{movieList}</div>
-      <div>
+      {movieList}
+      <div className="searchBar">
         <SearchMovieBarComponent />
       </div>
     </div>

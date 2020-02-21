@@ -1,19 +1,16 @@
 .containerMovieList {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   width: 50%;
   height: 50%;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
-.asdf {
-}
-
-.test {
-  justify-content: space-between;
-  position: relative;
+.searchBar {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
