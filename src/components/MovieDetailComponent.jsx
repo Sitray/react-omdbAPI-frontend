@@ -10,6 +10,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import SpinnerComponent from './SpinnerComponent';
+
 import { API_KEY } from '../constants';
 import { useFetch } from '../hooks';
 
@@ -41,7 +43,7 @@ function MovieDetailComponent(props) {
   const movieDetail = res.data;
 
   if (!movieDetail) {
-    return <div>loading</div>;
+    return <SpinnerComponent />;
   }
 
   const handleOnClick = () => {

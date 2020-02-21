@@ -11,7 +11,6 @@ function SearchMovieBarComponent(props) {
 
   const handleSUmbit = event => {
     event.preventDefault();
-    console.log(movie);
 
     if (movie.length === 0) return;
 
@@ -40,5 +39,4 @@ function SearchMovieBarComponent(props) {
   );
 }
 
-// const SearchForm = connect()(SearchMovieBarComponent);
 export default withRouter(SearchMovieBarComponent);

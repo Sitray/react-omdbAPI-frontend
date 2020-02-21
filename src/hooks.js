@@ -12,9 +12,7 @@ const useFetch = (url, options) => {
       try {
         const response = await fetch(url, options);
         const json = await response.json();
-        console.log('hola');
         setData(json);
-        console.log(json);
         if (json.Response === 'False') {
           setError(true);
         } else {
@@ -22,7 +20,6 @@ const useFetch = (url, options) => {
         }
         setIsLoading(false);
       } catch (error) {
-        console.log('hola catch');
         setError(true);
       }
     };

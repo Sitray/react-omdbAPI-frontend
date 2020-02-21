@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import SearchMovieBarComponent from './SearchMovieBarComponent';
 import MovieCardComponent from './MovieCardComponent';
 import AlertComponent from './AlertComponent';
+import SpinnerComponent from './SpinnerComponent';
 
 import { API_KEY } from '../constants';
 import { useFetch } from '../hooks';
@@ -16,14 +17,16 @@ export default function MovieListComponent() {
     `http://www.omdbapi.com/?s=${movieName}&apikey=${API_KEY}`,
     {}
   );
+
   let movieInfo = res.data;
 
   if (res.isLoading) {
-    return <div>Loading</div>;
+    return <SpinnerComponent />;
   }
 
   let searchBarError;
   let movieList;
+
   if (res.error) {
     searchBarError = (
       <div className="container">
@@ -31,7 +34,6 @@ export default function MovieListComponent() {
         <AlertComponent alertType="error" message="Movie not found!" />
       </div>
     );
-    console.log('hola errorrrrrrr');
   } else {
     searchBarError = (
       <div className="searchBar">
@@ -48,8 +50,6 @@ export default function MovieListComponent() {
       <div>Not found!</div>
     );
   }
-
-  console.log(res.error + 'error');
 
   return (
     <div className="containerMovieList">
