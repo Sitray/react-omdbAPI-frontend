@@ -11,7 +11,6 @@ import './MovieListComponent.css';
 
 export default function MovieListComponent() {
   const movie = useSelector(state => state.movie);
-  console.log(movie + 'hola');
   const res = useFetch(
     `http://www.omdbapi.com/?s=${movie}&apikey=${API_KEY}`,
     {}
@@ -32,8 +31,10 @@ export default function MovieListComponent() {
   return (
     <div className="containerMovieList">
       {movieList}
-      <div className="searchBar">
-        <SearchMovieBarComponent />
+      <div>
+        <div className="searchBar">
+          <SearchMovieBarComponent />
+        </div>
       </div>
     </div>
   );

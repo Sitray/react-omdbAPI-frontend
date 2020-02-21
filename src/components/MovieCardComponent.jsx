@@ -13,12 +13,12 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 250,
     margin: '30px'
   },
   media: {
-    height: 100,
-    width: 345,
+    height: 200,
+    width: 250,
     paddingTop: '56.25%', // 16:9,
     marginTop: '30'
   }
@@ -33,10 +33,8 @@ function MovieCardComponent(props) {
   if (!movieInfo) {
     return <div>loading</div>;
   }
-  console.log(movieInfo);
-  console.log('card component');
 
-  const handleClick = e => {
+  const handleClick = () => {
     dispatch({
       type: 'SET_MOVIE_ID',
       item: movieInfo.imdbID

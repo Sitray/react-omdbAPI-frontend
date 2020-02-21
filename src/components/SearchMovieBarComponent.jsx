@@ -22,24 +22,22 @@ function SearchMovieBarComponent(props) {
   };
 
   return (
-    <div>
-      <div className="form">
-        <form noValidate autoComplete="off" onSubmit={handleSUmbit}>
-          <h2 className="title">Search</h2>
-          <Input
-            placeholder="Enter a movie..."
-            className="input"
-            inputProps={{ 'aria-label': 'description' }}
-            value={movie}
-            onChange={e => setMovie(e.target.value)}
-          />
-          <div className="button">
-            <Button variant="contained" color="primary" type="submit">
-              Submit
-            </Button>
-          </div>
-        </form>
-      </div>
+    <div className="form">
+      <form noValidate autoComplete="off" onSubmit={handleSUmbit}>
+        <h2 className="title">Search</h2>
+        <Input
+          placeholder="Enter a movie..."
+          className="input"
+          inputProps={{ 'aria-label': 'description' }}
+          value={movie}
+          onChange={e => setMovie(e.target.value)}
+        />
+        <div className="button">
+          <Button variant="contained" color="primary" type="submit">
+            Submit
+          </Button>
+        </div>
+      </form>
     </div>
   );
 }
