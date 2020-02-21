@@ -10,6 +10,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import SpinnerComponent from './SpinnerComponent';
+
 import { API_KEY } from '../constants';
 import { useFetch } from '../hooks';
 
@@ -39,6 +41,10 @@ function MovieDetailComponent() {
   const res = useFetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`);
 
   const movieDetail = res.data;
+
+  if (!movieDetail) {
+    return <SpinnerComponent />;
+  }
 
   const handleOnClick = () => {
     history.goBack();
