@@ -13,6 +13,8 @@ function SearchMovieBarComponent(props) {
     event.preventDefault();
     console.log(movie);
 
+    if (movie.length === 0) return;
+
     history.push(`/movies/${movie}`);
   };
 
@@ -25,6 +27,7 @@ function SearchMovieBarComponent(props) {
           className="input"
           inputProps={{ 'aria-label': 'description' }}
           value={movie}
+          type="text"
           onChange={e => setMovie(e.target.value)}
         />
         <div className="button">
