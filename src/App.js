@@ -3,9 +3,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import reducer from '../src/reducer';
+
 import HomeComponent from './components/HomeComponent';
 import MovieListComponent from './components/MovieListComponent';
-import reducer from '../src/reducer';
+import MovieDetailComponent from './components/MovieDetailComponent';
 
 const store = createStore(reducer);
 export default class extends Component {
@@ -18,6 +20,10 @@ export default class extends Component {
             <Route
               path="/movies"
               component={props => <MovieListComponent {...props} />}
+            />
+            <Route
+              path="/detail/:imdbID"
+              component={() => <MovieDetailComponent />}
             />
           </Switch>
         </BrowserRouter>
