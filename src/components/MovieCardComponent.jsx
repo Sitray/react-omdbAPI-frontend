@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { withRouter, useHistory } from 'react-router';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -13,44 +16,58 @@ const useStyles = makeStyles({
     maxWidth: 345
   },
   media: {
-    height: 140
+    height: 200,
+    width: 200,
+    paddingTop: '56.25%', // 16:9,
+    marginTop: '30'
   }
 });
 
-export default function MovieCardComponent(props) {
+function MovieCardComponent(props) {
   const classes = useStyles();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const movieInfo = props.data;
 
-  if (!props.data) {
+  if (!movieInfo) {
     return <div>loading</div>;
   }
-  console.log(props.data);
+  console.log(movieInfo);
   console.log('card component');
+
+  const handleClick = e => {
+    dispatch({
+      type: 'SET_MOVIE_ID',
+      item: movieInfo.imdbID
+    });
+    history.push(`/detail/${movieInfo.imdbID}`);
+  };
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={movieInfo.Poster}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Title :{props.data.Title}
+            Title :{movieInfo.Title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Description:
+            Year: {movieInfo.Year}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+        <Button size="small" color="primary" onClick={handleClick}>
+          More Details
         </Button>
       </CardActions>
     </Card>
   );
 }
+
+const showMovieDetailCard = withRouter(MovieCardComponent);
+export default connect(showMovieDetailCard)(MovieCardComponent);

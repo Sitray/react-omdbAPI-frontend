@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { withRouter, useHistory } from 'react-router';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,8 +26,13 @@ const useStyles = makeStyles({
 function MovieDetailComponent(props) {
   const classes = useStyles();
   const history = useHistory();
-  const res = useFetch(`http://www.omdbapi.com/?i=tt7286456&apikey=${API_KEY}`);
+  const movieId = useSelector(state => state.movieId);
+  const res = useFetch(
+    `http://www.omdbapi.com/?i=${movieId}&apikey=${API_KEY}`
+  );
+
   const movieDetail = res.data;
+
   if (!movieDetail) {
     return <div>loading</div>;
   }
@@ -35,10 +40,6 @@ function MovieDetailComponent(props) {
   const handleOnClick = () => {
     history.goBack();
   };
-
-  console.log(movieDetail);
-  console.log('movie detail');
-  console.log(movieDetail.Ratings);
 
   return (
     <Card className={classes.root}>

@@ -1,5 +1,6 @@
 const initialState = {
-  movie: ''
+  movie: '',
+  movieId: ''
 };
 
 export default (state = initialState, action) => {
@@ -9,6 +10,12 @@ export default (state = initialState, action) => {
       newState.movie = '';
       newState.movie = action.item;
       console.log(newState.movie);
+      return newState;
+
+    case 'SET_MOVIE_ID':
+      newState.movieId = '';
+      newState.movieId = action.item;
+      console.log(newState.movieId + 'movieId');
       return newState;
 
     default:

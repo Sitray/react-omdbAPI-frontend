@@ -16,22 +16,16 @@ export default function MovieListComponent() {
     `http://www.omdbapi.com/?s=${movie}&apikey=${API_KEY}`,
     {}
   );
-  console.log(res);
-  console.log(movie + 'hola2');
 
-  if (res.data) {
-    console.log(res.data);
-    console.log(res.data.Search[0]);
-  }
+  let movieInfo = res.data;
 
-  let movieList;
-  if (res.data) {
-    movieList = res.data.Search.map((data, i) => (
+  let movieList = movieInfo ? (
+    movieInfo.Search.map((data, i) => (
       <MovieCardComponent key={i} data={data} />
-    ));
-  } else {
-    movieList = <div>Not found!</div>;
-  }
+    ))
+  ) : (
+    <div>Not found!</div>
+  );
 
   return (
     <div className="containerMovieList">

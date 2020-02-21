@@ -39,15 +39,6 @@ function SearchMovieBarComponent(props) {
             </Button>
           </div>
         </form>
-        {/* <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          component={Link}
-          to="/movies"
-        >
-          next
-        </Button> */}
       </div>
     </div>
   );
