@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux';
 import { withRouter, useHistory } from 'react-router';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -32,7 +31,6 @@ const useStyles = makeStyles({
 function MovieCardComponent(props) {
   const classes = useStyles();
   const history = useHistory();
-  const dispatch = useDispatch();
   const movieInfo = props.data;
 
   if (!movieInfo) {
@@ -40,10 +38,6 @@ function MovieCardComponent(props) {
   }
 
   const handleClick = () => {
-    dispatch({
-      type: 'SET_MOVIE_ID',
-      item: movieInfo.imdbID
-    });
     history.push(`/detail/${movieInfo.imdbID}`);
   };
 
@@ -79,5 +73,4 @@ function MovieCardComponent(props) {
   );
 }
 
-const showMovieDetailCard = withRouter(MovieCardComponent);
-export default connect(showMovieDetailCard)(MovieCardComponent);
+export default withRouter(MovieCardComponent);

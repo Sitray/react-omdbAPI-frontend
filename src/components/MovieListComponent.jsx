@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import SearchMovieBarComponent from './SearchMovieBarComponent';
 import MovieCardComponent from './MovieCardComponent';
@@ -10,9 +10,9 @@ import { useFetch } from '../hooks';
 import './MovieListComponent.css';
 
 export default function MovieListComponent() {
-  const movie = useSelector(state => state.movie);
+  const { movieName } = useParams();
   const res = useFetch(
-    `http://www.omdbapi.com/?s=${movie}&apikey=${API_KEY}`,
+    `http://www.omdbapi.com/?s=${movieName}&apikey=${API_KEY}`,
     {}
   );
 

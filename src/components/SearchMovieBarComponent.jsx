@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
 import { withRouter, useHistory } from 'react-router';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
@@ -7,18 +6,14 @@ import Button from '@material-ui/core/Button';
 import './SearchMovieBar.css';
 
 function SearchMovieBarComponent(props) {
-  const dispatch = useDispatch();
   const history = useHistory();
   const [movie, setMovie] = useState('');
 
   const handleSUmbit = event => {
     event.preventDefault();
     console.log(movie);
-    dispatch({
-      type: 'SET_MOVIE',
-      item: movie
-    });
-    history.push(`/movies?q=${movie}`);
+
+    history.push(`/movies/${movie}`);
   };
 
   return (
@@ -43,6 +38,4 @@ function SearchMovieBarComponent(props) {
 }
 
 // const SearchForm = connect()(SearchMovieBarComponent);
-
-const ShowTheLocationWithRouter = withRouter(SearchMovieBarComponent);
-export default connect(ShowTheLocationWithRouter)(SearchMovieBarComponent);
+export default withRouter(SearchMovieBarComponent);
